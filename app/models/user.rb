@@ -27,4 +27,6 @@ class User < ApplicationRecord
   def admin?
     is_admin
   end
+
+  scope :except_user, ->(user){where.not(id: user)}
 end
