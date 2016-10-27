@@ -24,7 +24,11 @@
         <%= render_is_admin(user) %>
       </td>
       <td>
-
+        <% if user.is_admin %>
+          <%= link_to("set user customer", setUserCustomer_admin_user_path(user), method: :post, class: "btn btn-default") %>
+        <% else %>
+          <%= link_to("set user admin", setUserAdmin_admin_user_path(user), method: :post, class: "btn btn-primary", data: {confirm: "set this user admin?"}) %>
+        <% end %>
       </td>
       <td>
         <%= user.last_sign_in_at %>
