@@ -14,4 +14,6 @@
 
 class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
+
+  scope :is_on_shell, ->{where(is_present: true)}
 end

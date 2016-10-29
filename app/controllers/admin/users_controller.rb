@@ -7,8 +7,6 @@ class Admin::UsersController < ApplicationController
     @users = User.all.except_user(current_user)
   end
 
-
-
   def setUserAdmin
     @user = User.find(params[:id])
     @user.is_admin = true

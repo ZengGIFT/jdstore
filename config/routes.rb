@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   resources :products
 
   namespace :admin do
-    resources :products
+    resources :products do
+      member do
+        post :publishProduct
+        post :hideProduct
+      end
+    end
+    resources :orders
     resources :users do
       member do
         post :setUserAdmin

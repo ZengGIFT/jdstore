@@ -3,7 +3,7 @@ class Admin::ProductsController < ApplicationController
   before_action :require_is_admin
   layout "admin"
   def index
-    @products = Product.all    
+    @products = Product.all
   end
 
   def new
@@ -47,10 +47,26 @@ class Admin::ProductsController < ApplicationController
     flash[:alert] = "相公，你这就下了？"
   end
 
+  def publishProduct
+    @product = Product.find(params[:id])
+    @product.is_present = true
+    @product.save
+
+    redirect_to :back
+  end
+
+  def hideProduct
+    @product = Product.find(params[:id])
+    @product.is_present = false
+    @product.save
+
+    redirect_to :back
+  end
+
   private
 
   def product_params
     params.require(:product).permit(:title,
-    :description, :quantity, :price, :image)
+    :description, :quantity, :price, :image, :is_present)
   end
 end

@@ -22,7 +22,7 @@
       <%= link_to(product_path(product)) do %>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <% if product.image?  %>
+          <% if product.image.present?  %>
             <%= image_tag product.image.thumb.url %>
           <% else %>
             <img src="http://placehold.it/200x200&text=laoMa" alt="" />
