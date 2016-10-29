@@ -27,6 +27,9 @@
       <td>
         <%= order.status_name %>
       </td>
+      <td>
+        <%= link_to("Edit the status", edit_admin_order_path(order)) %>
+      </td>
     </tr>
     <% end %>
 

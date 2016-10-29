@@ -1,0 +1,15 @@
+<h1>发货通知</h1>
+
+<%= simple_form_for [:admin, @order] do |f| %>
+货物状态
+
+  UPAID = 1
+  PAYING = 2
+  DELIVERING = 3
+  DELIVERED = 4
+  CALLBACK = 5
+  <%= f.input :order_status %>
+  <%= f.submit "提交并发送通知" %>
+<% end %>
+
+<%= link_to("返回后台", admin_orders_path, class: "btn btn-primary") %>
