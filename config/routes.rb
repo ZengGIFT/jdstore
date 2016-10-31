@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resources :cart
+
   resources :products do
-    resources :tests
+    member do
+      post :addToCart
+    end
   end
 
   namespace :admin do

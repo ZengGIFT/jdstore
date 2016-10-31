@@ -1,0 +1,7 @@
+<h1>Your Cart</h1>
+
+<% @orders.each do |order| %>
+  <%= order.user.email %>
+  <%= order.product.title %>
+
+<% end %>
